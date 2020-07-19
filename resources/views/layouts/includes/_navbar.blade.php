@@ -8,7 +8,7 @@
 		</div>
 		<form class="navbar-form navbar-left" method="GET" action="/siswa">
 			<div class="input-group">
-				<input name="cari" type="text" value="" class="form-control" placeholder="Cari data siswa...">
+				<input name="cari" type="text" class="form-control" placeholder="Cari data siswa...">
 				<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
 			</div>
 		</form>
