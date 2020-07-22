@@ -38,7 +38,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/threads/{thread}', 'ThreadsController@show');
     Route::post('/threads', 'ThreadsController@store');
     Route::delete('/threads/{thread}', 'ThreadsController@destroy');
-    Route::get('/threads/{thread}/edit', 'ThreadsController@edit');
     Route::patch('/threads/{thread}', 'ThreadsController@update');
 
 });
