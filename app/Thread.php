@@ -5,10 +5,19 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
-{
-    protected $table = 'forum';
+{   
+    // Tabel yang digunakan
+    protected $table = 'threads';
+    // Atribut yang fillable
+    protected $fillable = ['question', 'user_id'];
 
+    // Relation ke user
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');   
+    }
+
+    // Relation ke replies
+    public function replies(){
+        return $this->hasMany('App\User');
     }
 }
