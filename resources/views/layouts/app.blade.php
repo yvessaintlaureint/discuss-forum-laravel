@@ -47,7 +47,7 @@
                             <a class="nav-link" href="/siswa">Siswa</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 ml-auto mr-4" action="#" method="get" autocomplete="off">
+                    <form class="form-inline my-2 my-lg-0 ml-auto mr-4" action="/threads" method="get" autocomplete="off">
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Cari Pertanyaan" aria-label="Cari Pertanyaan" aria-describedby="search-icon" style="width: 300px !important;">
                             <div class="input-group-append">
