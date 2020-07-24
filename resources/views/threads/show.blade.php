@@ -12,14 +12,11 @@
     @endif
     
     {{-- Question --}}
-    <h3 class="mt-2 mb-3 font-weight-bold">{{$thread->question}}</h3>
-    <h6 class="card-subtitle mb-2 text-muted">{{$thread->user->name}} · {{$thread->created_at}}</h6>
+    <small class="card-subtitle text-muted">{{$thread->user->name}} · {{$thread->created_at}}</small>
+    <h3 class="mt-1 mb-3 font-weight-bold">{{$thread->question}}</h3>
 
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#answer" ><i class="fas fa-edit mr-1"></i>Answer</button>
-    
     @if($thread->user_id == auth()->user()->id)
       <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" >Edit</button>
-      
       <!-- Modal -->
       <div class="modal fade" id="editModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -47,13 +44,14 @@
             </div>
         </div>
       </div>
-      
-      
+
       <form action="/threads/{{$thread->id}}" method="post" class="d-inline">
         @method('delete')
         @csrf
         <button type="submit" class="btn btn-danger">Delete</button>
       </form>
+    @else
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#answer" ><i class="fas fa-edit mr-1"></i>Answer</button>
     @endif
 
     {{-- Answer --}}
@@ -68,16 +66,16 @@
     @foreach($thread->replies as $reply)
       <div class="card rounded my-2">
         <div class="card-body">
+          <h6 class="card-title">{{$reply->user->name}} · {{$reply->created_at}}</h6>
+          <p class="card-text text-dark reply-body">{{$reply->body}}</p>
           @if($reply->user_id == auth()->user()->id)
-            <a href="/replies/{{$reply->id}}/edit" class="btn btn-success ml-auto float-right" style="margin-left:5px; margin-right: 5px;">Edit</a>
+            <a href="/replies/{{$reply->id}}/edit" class="btn btn-success reply-action">Edit</a>
             <form action="/replies/{{$reply->id}}" method="post" class="d-inline">
               @method('delete')
               @csrf
-              <button type="submit" class="btn btn-danger float-right" style="margin-left:5px; margin-right: 5px;">Delete</button>
+              <button type="submit" class="btn btn-danger reply-action">Delete</button>
             </form>
           @endif
-          <h5 class="card-title font-weight-bold text-dark">{{$reply->body}}</h5>
-          <small class="card-subtitle mb-2 text-muted">{{$reply->user->name}} · {{$reply->created_at}}</small>
         </div>
       </div>
     @endforeach

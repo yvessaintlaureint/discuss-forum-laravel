@@ -18,8 +18,7 @@
                     @foreach($threads as $thread)
                         <div class="card rounded my-2">
                             <div class="card-body">
-                            <h5 class="card-title font-weight-bold"><a href="/threads/{{$thread->id}}" class="text-dark">{{$thread->question}}</a></h5>
-                            <small class="card-subtitle mb-2 text-muted">{{$thread->user->name}} . {{$thread->created_at}}</small>
+                            <h5 class="font-weight-bold"><a href="/threads/{{$thread->id}}" class="text-dark">{{$thread->question}}</a></h5>
                             </div>
                         </div>
                     @endforeach
