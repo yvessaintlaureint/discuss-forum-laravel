@@ -12,11 +12,18 @@ class ThreadsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $threads = Thread::orderBy('created_at','desc')->paginate(10);
-        // dd($threads);
-        return view('threads.index')->with('threads', $threads);
+        if($request->has('search')) {
+            $keyword = $request->search;
+    
+            $threads = Thread::where('question', 'like', '%' . $keyword . '%')->paginate(10);
+            return view('threads.index')->with('threads', $threads);
+
+        }else {
+            $threads = Thread::orderBy('created_at','desc')->paginate(10);
+            return view('threads.index')->with('threads', $threads);
+        }
     }
 
     /**
@@ -90,6 +97,8 @@ class ThreadsController extends Controller
      */
     public function destroy($id)
     {
+        $thread = Thread::find($id);
+        
         // Check authorized user
         if(auth()->user()->id !== $thread->user->id) {
             return redirect('/threads');
