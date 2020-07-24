@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3">
         <div class="col-8 mx-auto">
             @if (session('status'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -16,7 +16,7 @@
                 <?php $cond = count($thread->replies); $someText = "Answer" ?>
 
                     @if($cond!=1)
-                      <?php $someText = "Answers"; ?>
+                        <?php $someText = "Answers"; ?>
                     @endif
                     <div class="card rounded my-2">
                         <div class="card-body">

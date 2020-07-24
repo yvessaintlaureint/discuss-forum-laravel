@@ -43,9 +43,6 @@
                         <li class="nav-item{{ request()->is('threads') ? ' active' : '' }}">
                             <a class="nav-link" href="/threads">Threads <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/siswa">Siswa</a>
-                        </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 ml-auto mr-4" action="/threads" method="get" autocomplete="off">
                         <div class="input-group">
@@ -71,7 +68,7 @@
                             @endif
                         @else
                             <li class="nav-item mr-3">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#addModal" ><i class="fas fa-plus-circle mr-2"></i>Tambah Pertanyaan</button>
+                                <button type="button" class="btn" data-toggle="modal" data-target="#addModal" ><i class="fas fa-plus-circle mr-2"></i>Add Question</button>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -79,6 +76,9 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/user/{{ auth()->user()->id }}/edit">Edit Profile</a>
+                                    <a class="dropdown-item" href="/siswa/{{ auth()->user()->id }}/delete" onclick="return confirm('Apakah yakin ingin menghapus data ini?')">Delete Account</a>
+                                    <div class="dropdown-divider"></div>  
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
@@ -101,7 +101,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Pertanyaan</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Question</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

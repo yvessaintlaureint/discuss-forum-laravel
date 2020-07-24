@@ -13,8 +13,8 @@
 								<div class="profile-header">
 									<div class="overlay"></div>
 									<div class="profile-main">
-										<img src="{{$siswa->getAvatar()}}" class="img-circle" alt="Avatar">
-										<h3 class="name">{{$siswa -> nama_depan}}</h3>
+										<img src="{{$user->getAvatar()}}" class="img-circle" alt="Avatar">
+										<h3 class="name">{{$user -> name}}</h3>
 										<span class="online-status status-available">Available</span>
 									</div>
 									<div class="profile-stat">
@@ -37,12 +37,11 @@
 									<div class="profile-info">
 										<h4 class="heading">Data Diri</h4>
 										<ul class="list-unstyled list-justify">
-											<li>Jenis Kelamin <span>{{$siswa->jenis_kelamin}}</span></li>
-											<li>Agama <span>{{$siswa->agama}}</span></li>
-											<li>Alamat <span>{{$siswa->alamat}}</span></li>
+											<li>Email <span>{{$user->email}}</span></li>
+											<li>Telepon <span>{{$user->phone}}</span></li>
 										</ul>
 									</div>
-									<div class="text-center"><a href="/siswa/{{$siswa->id}}/edit" class="btn btn-warning">Edit Profile</a></div>
+									<div class="text-center"><a href="/user/{{$user->id}}/edit" class="btn btn-warning">Edit Profile</a></div>
 								</div>
 								<!-- END PROFILE DETAIL -->
 							</div>
