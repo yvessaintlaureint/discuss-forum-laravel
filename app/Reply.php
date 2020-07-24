@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
-    protected $table = 'komentar';
+    protected $table = 'replies';
+
+    // Relation ke user
+    public function user(){
+        return $this->belongsTo('App\User');   
+    }
+
+    public function thread(){
+        return $this->belongsTo('App\Thread');   
+    }
+
 }

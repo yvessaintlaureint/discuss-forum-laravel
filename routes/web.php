@@ -40,6 +40,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::delete('/threads/{thread}', 'ThreadsController@destroy');
     Route::patch('/threads/{thread}', 'ThreadsController@update');
 
+    // Reply
+    Route::resource('replies','RepliesController',['only'=>['edit','update','destroy']]);
+    Route::post('/replies/create/{thread}','RepliesController@CreateReply')->name('storecomment');
 });
 
 

@@ -98,7 +98,6 @@ class ThreadsController extends Controller
     public function destroy($id)
     {
         $thread = Thread::find($id);
-        
         // Check authorized user
         if(auth()->user()->id !== $thread->user->id) {
             return redirect('/threads');

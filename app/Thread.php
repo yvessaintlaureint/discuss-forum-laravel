@@ -18,6 +18,6 @@ class Thread extends Model
 
     // Relation ke replies
     public function replies(){
-        return $this->hasMany('App\User');
+        return $this->hasMany('App\Reply');
     }
 }
