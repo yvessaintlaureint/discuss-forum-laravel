@@ -23,11 +23,11 @@
                 <div class="col-sm-6 regis-section-wrapper">
                     <div class="regis-wrapper my-auto">
                         <h1 class="regis-title">Quori?</h1>
-                        <form method="POST" action="{{ route('register') }}>
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="name">{{ __('Name') }}</label>
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required placeholder="enter your name">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                             <div class="form-row mb-3">
                                 <div class="col-7">
                                     <label for="email">{{ __('E-Mail Address') }}</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="email@example.com">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-5">
                                     <label for="phone">{{ __('Phone') }}</label>
-                                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required placeholder="08123456789">
+                                    <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required>
 
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
