@@ -35,7 +35,7 @@ class SiswaController extends Controller
         if($request->hasFile('avatar')){
             $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
             $siswa->avatar = $request->file('avatar')->getClientOriginalName();
-            $siswa->save();
+            $siswa->save(); 
         }
         return redirect('/siswa')->with('sukses', 'Data berhasil diupdate!');
     }

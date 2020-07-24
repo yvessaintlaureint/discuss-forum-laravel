@@ -47,7 +47,7 @@
                             <a class="nav-link" href="/siswa">Siswa</a>
                         </li>
                     </ul>
-                    <form class="form-inline my-2 my-lg-0 ml-auto mr-4" action="#" method="get" autocomplete="off">
+                    <form class="form-inline my-2 my-lg-0 ml-auto mr-4" action="/threads" method="get" autocomplete="off">
                         <div class="input-group">
                             <input type="text" class="form-control" name="search" placeholder="Cari Pertanyaan" aria-label="Cari Pertanyaan" aria-describedby="search-icon" style="width: 300px !important;">
                             <div class="input-group-append">
@@ -71,8 +71,7 @@
                             @endif
                         @else
                             <li class="nav-item mr-3">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#staticBackdrop" ><i class="fas fa-plus-circle mr-2"></i>Tambah Pertanyaan</button>
-                                {{-- <a href="/threads/create" class="btn btn-secondary text-white"><i class="fas fa-plus-circle mr-2"></i>Tambah Pertanyaan</a> --}}
+                                <button type="button" class="btn" data-toggle="modal" data-target="#addModal" ><i class="fas fa-plus-circle mr-2"></i>Tambah Pertanyaan</button>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -98,7 +97,7 @@
         </nav>
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade" id="addModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
