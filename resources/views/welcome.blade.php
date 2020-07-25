@@ -8,17 +8,22 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{asset('/images/welcome.jpg')}}) center/cover no-repeat fixed;;
+                color: #fff;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
+            }
+
+            p {
+                font-family: 'Nunito', sans-serif;
             }
 
             .full-height {
@@ -37,8 +42,8 @@
 
             .top-right {
                 position: absolute;
-                right: 10px;
-                top: 18px;
+                right: 20px;
+                top: 25px;
             }
 
             .content {
@@ -47,11 +52,13 @@
 
             .title {
                 font-size: 84px;
+                font-family: 'Lora', sans-serif;
+                margin-bottom: 38px;
             }
 
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+                color: #fff;
+                padding: 5px 25px;
                 font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
@@ -59,8 +66,8 @@
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            .links > a:hover {
+                border-bottom: 3px solid #fdbb28;
             }
         </style>
     </head>
@@ -81,7 +88,7 @@
             @endif
 
             <div class="container text-center">
-                <div class="title m-b-md">
+                <div class="title">
                     <strong>Quori?</strong>
                 </div>
 

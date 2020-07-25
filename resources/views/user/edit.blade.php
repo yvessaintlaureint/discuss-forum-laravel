@@ -4,7 +4,9 @@
   <div class="container mt-3">
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <h3 class="panel-title">Edit Profil</h3>
+        <h3 class="mb-3">Edit Profil</h3>
+        <img src="{{auth()->user()->getAvatar()}}" class="rounded-circle mx-auto mb-4" alt="Avatar" height="100px">
+
         <form action="/user/{{ $user->id }}/update" method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -16,7 +18,7 @@
               <label>Telepon</label>
               <input value="{{ $user->phone }}" type="text" class="form-control" name="phone" placeholder="Ketik nomor telepon anda disini">
             </div>
-            <div class="custom-file">
+            <div class="custom-file mb-4">
               <input type="file" class="custom-file-input" name="avatar" id="avatar">
               <label class="custom-file-label" for="avatar">Choose avatar</label>
             </div>

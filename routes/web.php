@@ -24,16 +24,12 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/home', 'HomeController@index');
     
-    // Siswa
-    Route::get('/users', 'UsersController@index');
-    Route::post('/user/create','UsersController@create');
+    // User
     Route::get('/user/{id}/edit','UsersController@edit');
     Route::post('/user/{id}/update','UsersController@update');
     Route::get('/user/{id}/delete','UsersController@delete');
-    Route::get('/user/{id}/profile', 'UsersController@profile');
 
     // Thread
-    // Route::resource('threads', 'ThreadsController');
     Route::get('/threads', 'ThreadsController@index');
     Route::get('/threads/{thread}', 'ThreadsController@show');
     Route::post('/threads', 'ThreadsController@store');
