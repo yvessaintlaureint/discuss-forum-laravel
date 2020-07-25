@@ -105,6 +105,7 @@ class ThreadsController extends Controller
             return redirect('/threads');
         }
         
+        $thread->replies()->delete();
         Thread::destroy($id);
         return redirect('/threads')->with('status', 'Thread sudah dihapus!');
     }
