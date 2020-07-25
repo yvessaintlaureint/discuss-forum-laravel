@@ -1,3 +1,7 @@
+:root {
+    --theme-color: #fdbb28;
+}
+
 body {
     font-family: "Karla", sans-serif;
     background-color: #fff;
@@ -27,7 +31,7 @@ body {
     border: none;
     border-bottom: 1px solid #e7e7e7;
     border-radius: 0;
-    padding: 9px 5px;
+    padding: 15px 10px;
     min-height: 40px;
     font-size: 18px;
     font-weight: normal;
@@ -39,7 +43,7 @@ body {
 
 .regis-wrapper .regis-btn {
     padding: 13px 20px;
-    background-color: #fdbb28;
+    background-color: var(--theme-color);
     border-radius: 0;
     font-size: 20px;
     font-weight: bold;
@@ -47,9 +51,9 @@ body {
     margin-bottom: 14px;
 }
 .regis-wrapper .regis-btn:hover {
-    border: 1px solid #fdbb28;
-    background-color: #fff;
-    color: #fdbb28;
+    border: 1px solid #000;
+    background-color: transparent;
+    color: #000;
 }
 
 .regis-wrapper-footer-text {
@@ -60,10 +64,11 @@ body {
 }
 
 .regis-title {
+    font-family: "Lora", serif;
     font-size: 48px;
     color: #000;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .regis-img {

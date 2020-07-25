@@ -11,6 +11,7 @@
     
     {{-- Google Fonts--}}
     <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&display=swap" rel="stylesheet">
 
     {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -23,7 +24,7 @@
                 <div class="col-sm-6 regis-section-wrapper">
                     <div class="regis-wrapper my-auto">
                         <h1 class="regis-title">Quori?</h1>
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" autocomplete="off">
                             @csrf
                             <div class="form-group">
                                 <label for="name">{{ __('Name') }}</label>
@@ -37,7 +38,7 @@
                             </div>
                             <div class="form-row mb-3">
                                 <div class="col-7">
-                                    <label for="email">{{ __('E-Mail Address') }}</label>
+                                    <label for="email">{{ __('Email Address') }}</label>
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
 
                                     @error('email')
@@ -76,8 +77,8 @@
                             </button>
                         </form>
                         <p class="regis-wrapper-footer-text">
-                        Already have an account?
-                        <a href="/login" class="text-reset">Sign in here</a>
+                            Already have an account?
+                            <a href="/register"style="color: inherit;">Sign in here</a>
                         </p>
                     </div>
                 </div>

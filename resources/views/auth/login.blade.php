@@ -1,65 +1,59 @@
-<!doctype html>
-<html lang="en" class="fullscreen-bg">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quori? | Login</title>
+    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    
+    {{-- Google Fonts--}}
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&display=swap" rel="stylesheet">
 
-<head>
-	<title>Login | Klorofil - Free Bootstrap Dashboard Template</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!-- VENDOR CSS -->
-	<link rel="stylesheet" href="{{asset('admin/assets/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/assets/vendor/linearicons/style.css')}}">
-	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="{{asset('admin/assets/css/main.css')}}">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}">
-	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
-	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
-</head>
-
-<body>
-	<!-- WRAPPER -->
-	<div id="wrapper">
-		<div class="vertical-align-wrap">
-			<div class="vertical-align-middle">
-				<div class="auth-box ">
-					<div class="left">
-						<div class="content">
-							<div class="header">
-								<div class="logo text-center"><img src="{{asset('admin/logo-ppdb-dki.png')}}" alt="Klorofil Logo"></div>
-								<p class="lead">Login ke akun anda</p>
-							</div>
-              <form class="form-auth-small" action="{{ route('login') }}" method="POST">
-                {{csrf_field()}}
-								<div class="form-group">
-									<label for="signin-email" class="control-label sr-only">Email</label>
-									<input name="email" type="email" class="form-control" id="signin-email" placeholder="Email">
-								</div>
-								<div class="form-group">
-									<label for="signin-password" class="control-label sr-only">Password</label>
-									<input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
-								</div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
-							</form>
-						</div>
-					</div>
-					<div class="right">
-						<div class="overlay"></div>
-						<div class="content text">
-							<h1 class="heading">Aplikasi Pengelolaan Data Siswa baru</h1>
-							<p>by Software House HMTC & Dinas Pendidikan DKI Jakarta</p>
-						</div>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END WRAPPER -->
-</body>
-
+    {{-- Styles --}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{{asset('css/login.css')}}" />
+  </head>
+  <body>
+    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+      <div class="container">
+        <div class="card login-card">
+          <div class="row no-gutters">
+            <div class="col-md-5">
+              <img
+                src="{{asset('images/login.jpg')}}"
+                alt="login"
+                class="login-card-img"
+              />
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+								<h1 class="regis-title">Quori?</h1>
+								<p class="login-card-description">Sign into your account</p>
+								<form action="{{ route('login') }}" method="POST" autocomplete="off">
+									@csrf
+									<div class="form-group">
+										<label for="signin-email" class="control-label">Email</label>
+										<input name="email" type="email" class="form-control" id="signin-email" placeholder="Email">
+									</div>
+									<div class="form-group">
+										<label for="signin-password" class="control-label">Password</label>
+										<input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
+									</div>
+									<button type="submit" class="btn btn-block login-btn mb-4">Login</button>
+								</form>
+                <p class="login-card-footer-text">
+                  Don't have an account?
+                  <a href="/register" class="text-reset">Register here</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
