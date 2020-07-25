@@ -11,7 +11,7 @@
                 </div>
             @endif
     <h3 class="mt-2 mb-3 font-weight-bold">{{$thread->question}}</h3>
-    <h6 class="card-subtitle mb-2 text-muted">{{$thread->user->name}} · {{$thread->created_at}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{$thread->user->name}} · {{$thread->created_at}} · {{$thread->updated_at}}</h6>
 
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#answer" ><i class="fas fa-edit mr-1"></i>Answer</button>
     {{-- <a href="/replies" class="btn btn-secondary"><i class="fas fa-edit mr-1"></i>Answer</a> --}}
@@ -64,9 +64,9 @@
     <hr>
     <h6>{{count($thread->replies)}} {{$someText}}</h6>
     <hr>
-    <p>
+    <p> <?php $ba = $thread->replies; $ba = $ba->sortByDesc('created_at'); ?>
 
-      @foreach($thread->replies as $reply)
+      @foreach($ba as $reply)
 
       <div class="card rounded my-2">
         <div class="card-body">
@@ -79,7 +79,7 @@
             </form>
           @endif
           <h5 class="card-title font-weight-bold text-dark">{{$reply->body}}</h5>
-          <small class="card-subtitle mb-2 text-muted">{{$reply->user->name}} · {{$reply->created_at}}</small>
+          <small class="card-subtitle mb-2 text-muted">{{$reply->user->name}} · {{$reply->created_at}} · {{$reply->updated_at}}</small>
         </div>
       </div>
 

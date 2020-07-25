@@ -18,13 +18,35 @@
                     <div class="card rounded my-2">
                         <div class="card-body">
                         <h5 class="card-title font-weight-bold"><a href="/threads/{{$thread->id}}" class="text-dark">{{$thread->question}}</a></h5>
-                        <small class="card-subtitle mb-2 text-muted">{{$thread->user->name}} . {{$thread->created_at}}</small>
+                        <small class="card-subtitle mb-2 text-muted">{{$thread->user->name}} · {{$thread->created_at}} · {{$thread->updated_at}}</small>
                         </div>
                     </div>
                 @endforeach
             @else
-                <p>No threads found</p>
+                <p>You have not made any threads yet.</p>
             @endif
+            <br><br>
+            <h3 class="font-weight-bold">Your answers</h3>
+            <hr>
+            <?php 
+            use App\Reply; 
+            $id = auth()->user()->id; 
+            $repliess = Reply::where('user_id', $id)->get(); 
+            $repliess = $repliess->sortByDesc('created_at');
+            ?>
+            @if(count($repliess) > 0)
+                @foreach($repliess as $reply)
+                    <div class="card rounded my-2">
+                        <div class="card-body">
+                        <h5 class="card-title font-weight-bold"><a href="/threads/{{$reply->thread_id}}" class="text-dark">{{$reply->body}}</a></h5>
+                        <small class="card-subtitle mb-2 text-muted">{{$reply->user->name}} · {{$reply->created_at}} · {{$reply->updated_at}}</small>
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <p>You have not made any answers yet.</p>
+            @endif
+
         </div>
     </div>
 @endsection
