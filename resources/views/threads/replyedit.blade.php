@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container">
+  <div class="container mt-3">
     <div class="col-8 mx-auto mt-3">
       <form method="post" action="/replies/{{$reply->id}}">
         @method('put')

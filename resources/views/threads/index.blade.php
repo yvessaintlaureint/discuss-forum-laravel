@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-3">
         <div class="col-8 mx-auto">
             @if (session('status'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -13,16 +13,18 @@
             @endif
             @if(count($threads) > 0)
                 @foreach($threads as $thread)
-                <?php $cond = count($thread->replies); $someText = "Answer" ?>
-
+                    <?php $cond = count($thread->replies); $someText = "Answer" ?>
                     @if($cond!=1)
-                      <?php $someText = "Answers"; ?>
+                        <?php $someText = "Answers"; ?>
                     @endif
                     <div class="card rounded my-2">
                         <div class="card-body">
-                        <h5 class="card-title font-weight-bold"><a href="/threads/{{$thread->id}}" class="text-dark">{{$thread->question}}</a></h5>
-                        <small class="card-subtitle mb-2 text-muted">{{$thread->user->name}} · {{$thread->created_at}} · {{$thread->updated_at}} · {{count($thread->replies)}} {{$someText}}</small> <br> <br>
-                        <h6> <?php $a = $thread->replies->first(); if (isset($a->body)) {echo $a->body;} ?> </h6>
+
+                            <small class="card-subtitle text-muted">{{$thread->user->name}} · {{$thread->created_at}} · {{count($thread->replies)}} {{$someText}}</small>
+                            <h5 class="card-title thread-thumbnail"><a href="/threads/{{$thread->id}}" class="text-dark">{{$thread->question}}</a></h5>
+                            
+                            <p class="reply-thumbnail"> <?php $a = $thread->replies->first(); if (isset($a->body)) {echo $a->body;} ?> </p>
+
                         </div>
                     </div>
                 @endforeach

@@ -25,12 +25,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/home', 'HomeController@index');
     
     // Siswa
-    Route::get('/siswa', 'SiswaController@index');
-    Route::post('/siswa/create','SiswaController@create');
-    Route::get('/siswa/{id}/edit','SiswaController@edit');
-    Route::post('/siswa/{id}/update','SiswaController@update');
-    Route::get('/siswa/{id}/delete','SiswaController@delete');
-    Route::get('/siswa/{id}/profile', 'SiswaController@profile');
+    Route::get('/users', 'UsersController@index');
+    Route::post('/user/create','UsersController@create');
+    Route::get('/user/{id}/edit','UsersController@edit');
+    Route::post('/user/{id}/update','UsersController@update');
+    Route::get('/user/{id}/delete','UsersController@delete');
+    Route::get('/user/{id}/profile', 'UsersController@profile');
 
     // Thread
     // Route::resource('threads', 'ThreadsController');

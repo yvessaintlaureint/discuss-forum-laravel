@@ -18,7 +18,7 @@ class RepliesController extends Controller
         $reply->body = $request->body;
         $reply->user_id = auth()->user()->id;
         $thread->replies()->save($reply);
-         return redirect()->back();
+        return redirect()->back();
     }
 
 

@@ -10,13 +10,15 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'phone', 'password'
     ];
 
     /**
@@ -36,4 +38,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAvatar()
+    {
+        if(!$this->avatar){
+            return asset('images/default.jpg');
+        }
+        return asset('images/'.$this->avatar);
+    }
+
+    // Relation ke user
+    public function threads(){
+        return $this->hasMany('App\Threads');   
+    }
+
+    // Relation ke replies
+    public function replies(){
+        return $this->hasMany('App\Reply');
+    }
 }
