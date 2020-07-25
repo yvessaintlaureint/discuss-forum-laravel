@@ -13,7 +13,7 @@
             Please enter an answer.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-main">Submit</button>
       </form>
     </div>
   </div>

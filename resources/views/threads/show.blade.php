@@ -12,7 +12,7 @@
     @endif
     
     {{-- Question --}}
-    <small class="card-subtitle text-muted">{{$thread->user->name}} · {{$thread->created_at}}</small>
+    <small class="text-muted">{{$thread->user->name}} · {{$thread->created_at}}</small>
     <h3 class="mt-1 mb-3 font-weight-bold">{{$thread->question}}</h3>
 
     @if($thread->user_id == auth()->user()->id)
@@ -67,7 +67,13 @@
     @foreach($thread->replies as $reply)
       <div class="card rounded my-2">
         <div class="card-body">
-          <h6 class="card-title">{{$reply->user->name}} · {{$reply->created_at}}</h6>
+          <div class="d-flex align-items-start mb-2">
+            <img src="{{$reply->user->getAvatar()}}" class="rounded-circle" alt="Avatar" height="40px">
+            <div class="ml-2">
+              <h6 class="mt-1 mb-0">{{$reply->user->name}}</h6>
+              <small class="text-muted mt-0">{{$reply->created_at}}</small>
+            </div>
+          </div>
           <p class="card-text text-dark reply-body">{{$reply->body}}</p>
           @if($reply->user_id == auth()->user()->id)
             <a href="/replies/{{$reply->id}}/edit" class="btn btn-success reply-action"><i class="fas fa-pencil-alt"></i></i></a>
