@@ -40,7 +40,7 @@ class UsersController extends Controller
             $user->avatar = $request->file('avatar')->getClientOriginalName();
             $user->save();
         }
-        return redirect('/users')->with('sukses', 'Data berhasil diupdate!');
+        return redirect('/threads')->with('status', 'Data berhasil diupdate!');
     }
 
     public function delete($id)
@@ -59,12 +59,5 @@ class UsersController extends Controller
         $replies->delete();
         return redirect('/logout');
     }
-    
-    public function profile($id)
-    {
-        $user = User::find($id);
-        return view('user.profile', ['user' => $user]);    
-    }
-
 
 }
