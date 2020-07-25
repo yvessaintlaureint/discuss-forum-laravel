@@ -16,7 +16,8 @@
     <h3 class="mt-1 mb-3 font-weight-bold">{{$thread->question}}</h3>
 
     @if($thread->user_id == auth()->user()->id)
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" >Edit</button>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal" ><i class="fas fa-pencil-alt"></i></button>
+      
       <!-- Modal -->
       <div class="modal fade" id="editModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -38,7 +39,7 @@
                         Please enter a question.
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-main">Submit</button>
                   </form>
                 </div>
             </div>
@@ -48,10 +49,10 @@
       <form action="/threads/{{$thread->id}}" method="post" class="d-inline">
         @method('delete')
         @csrf
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
       </form>
     @else
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#answer" ><i class="fas fa-edit mr-1"></i>Answer</button>
+      <button type="button" class="btn btn-main" data-toggle="modal" data-target="#answer" ><i class="fas fa-edit mr-1"></i>Answer</button>
     @endif
 
     {{-- Answer --}}
@@ -69,11 +70,11 @@
           <h6 class="card-title">{{$reply->user->name}} · {{$reply->created_at}}</h6>
           <p class="card-text text-dark reply-body">{{$reply->body}}</p>
           @if($reply->user_id == auth()->user()->id)
-            <a href="/replies/{{$reply->id}}/edit" class="btn btn-success reply-action">Edit</a>
+            <a href="/replies/{{$reply->id}}/edit" class="btn btn-success reply-action"><i class="fas fa-pencil-alt"></i></i></a>
             <form action="/replies/{{$reply->id}}" method="post" class="d-inline">
               @method('delete')
               @csrf
-              <button type="submit" class="btn btn-danger reply-action">Delete</button>
+              <button type="submit" class="btn btn-danger reply-action"><i class="fas fa-trash"></i></button>
             </form>
           @endif
         </div>
@@ -104,7 +105,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-main">Submit</button>
             </div>
           </form>
         </div>

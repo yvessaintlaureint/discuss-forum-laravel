@@ -72,7 +72,7 @@
                             @endif
                         @else
                             <li class="nav-item mr-3">
-                                <button type="button" class="btn" data-toggle="modal" data-target="#addModal" ><i class="fas fa-plus-circle mr-2"></i>Add Question</button>
+                                <button type="button" class="btn btn-main" data-toggle="modal" data-target="#addModal" ><i class="fas fa-plus-circle mr-2"></i>Add Question</button>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -81,7 +81,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/user/{{ auth()->user()->id }}/edit">Edit Profile</a>
-                                    <a class="dropdown-item" href="/siswa/{{ auth()->user()->id }}/delete" onclick="return confirm('Apakah yakin ingin menghapus data ini?')">Delete Account</a>
+                                    <a class="dropdown-item" href="/user/{{ auth()->user()->id }}/delete" onclick="return confirm('Apakah yakin ingin menghapus data ini?')">Delete Account</a>
                                     <div class="dropdown-divider"></div>  
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -122,7 +122,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-main">Submit</button>
                             </div>
                         </form>
                     </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Thread;
+use App\Reply;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -20,6 +22,12 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
+
+        // Check authorized user
+        if(auth()->user()->id !== $user->id) {
+            return redirect('/threads');
+        }
+
         return view('user/edit', ['user' => $user]);
     } 
 
@@ -38,7 +46,17 @@ class UsersController extends Controller
     public function delete($id)
     {
         $user = User::find($id);
+        $threads = Thread::where('user_id', $id);
+        $replies = Reply::where('user_id', $id);
+
+        // Check authorized user
+        if(auth()->user()->id !== $user->id) {
+            return redirect('/threads');
+        }
+
         $user->delete();
+        $threads->delete();
+        $replies->delete();
         return redirect('/logout');
     }
     

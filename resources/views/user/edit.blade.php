@@ -20,7 +20,7 @@
               <input type="file" class="custom-file-input" name="avatar" id="avatar">
               <label class="custom-file-label" for="avatar">Choose avatar</label>
             </div>
-            <button type="submit" class="btn btn-warning">Update</button>
+            <button type="submit" class="btn btn-main">Update</button>
             </div>
         </form>
       </div>
