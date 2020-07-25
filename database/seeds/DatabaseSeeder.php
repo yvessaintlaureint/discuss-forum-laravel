@@ -15,43 +15,33 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         DB::table('users')->insert([
         	'id' => 101,
-		    'name' => 'apple man',
-		    'email' => 'apple@apple.com',
+		    'name' => 'Muhammad Rizqi Tsani',
+            'email' => 'rizqitsani@gmail.com',
+            'phone' => '085649070769',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-		    'password' => Hash::make('appleapple'),
+		    'password' => Hash::make('rizqitsani'),
+		    'avatar' => 'foto.jpg',
         ]);
         DB::table('users')->insert([
         	'id' => 102,
-		    'name' => 'Sean Kernan',
-		    'email' => 'seank@gmail.com',
+		    'name' => 'James Rafferty Lee',
+		    'email' => 'jamesrafe10@gmail.com',
+            'phone' => '081524008282',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-		    'password' => Hash::make('seankernan'),
+		    'password' => Hash::make('jamesrafe10'),
+		    'avatar' => 'foto3.jpg',
         ]);
         DB::table('users')->insert([
         	'id' => 103,
-		    'name' => 'Test Person',
-		    'email' => 'test@test.com',
+		    'name' => 'Reihan Nanda Ramadhan',
+		    'email' => 'reihannanda2000@gmail.com',
+            'phone' => '0817756788',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-		    'password' => Hash::make('password'),
-        ]);
-        DB::table('users')->insert([
-        	'id' => 104,
-		    'name' => 'banana man',
-		    'email' => 'banana@banana.com',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-		    'password' => Hash::make('bananabanana'),
-        ]);
-        DB::table('users')->insert([
-        	'id' => 105,
-		    'name' => 'Karen Gee',
-		    'email' => 'karen@gmail.com',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-		    'password' => Hash::make('sleepytime'),
+		    'password' => Hash::make('reihannanda2000'),
+		    'avatar' => 'foto2.jpg',
         ]);
         DB::table('threads')->insert([
             'user_id' => 102,
@@ -190,7 +180,7 @@ Follow this arc enough times and you reach the state of permanent motivation.",
             'updated_at' => Carbon::now()
         ]);
         DB::table('replies')->insert([
-            'user_id' => 105,
+            'user_id' => 103,
             'thread_id' => 91,
             'body' => "After All That, You Can Reach “Daily Motivation”
 
@@ -215,7 +205,7 @@ The same thing can happen to you and I sincerely hope it does.",
             'updated_at' => Carbon::now()
         ]);
         DB::table('replies')->insert([
-            'user_id' => 104,
+            'user_id' => 102,
             'thread_id' => 91,
             'body' => "Who needs motivation when you can die!",
             'created_at' => Carbon::now(),
@@ -282,7 +272,7 @@ On November 7, we will learn whether or not the US is still a democracy or not."
             'updated_at' => Carbon::now()
         ]);
         DB::table('replies')->insert([
-            'user_id' => 105,
+            'user_id' => 103,
             'thread_id' => 93,
             'body' => "When you approve of unconstitutional control and violence against your fellow citizens, you’re saying that when it’s your turn, you’ll be fine with being taken without question into custody by masked soldiers.
 
@@ -436,7 +426,7 @@ How sad.",
             'updated_at' => Carbon::now()
         ]);
         DB::table('replies')->insert([
-            'user_id' => 104,
+            'user_id' => 102,
             'thread_id' => 102,
             'body' => "My parents were pretty cool, even though strict. We had household rules that were chisled in stone, but they were few. We were not allowed to curse, have porn (in those days, Playboy was all we knew about and it was considered porn). We did assigned chores around the house without backtalk. We were allowed to go out and run the neighborhood, as long as we were home by dark. Pretty simple rules to follow.
 
@@ -458,13 +448,13 @@ I had to help re-paint to a pastel blue. It took four coats to cover the purple.
         ]);
         DB::table('threads')->insert([
         	'id' => 104,
-            'user_id' => 105,
+            'user_id' => 103,
             'question' => 'What innocent-seeming picture is actually heartbreaking?',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('replies')->insert([
-            'user_id' => 104,
+            'user_id' => 102,
             'thread_id' => 104,
             'body' => "John-Pierre Adams.
 
@@ -503,14 +493,14 @@ As her husband, Russel Newman, took a closer look at the baby, he screamed, “O
             'updated_at' => Carbon::now()
         ]);
         DB::table('threads')->insert([
-            'user_id' => 104,
+            'user_id' => 102,
             'id' => 103,
             'question' => "How will the GOP change (or will it) if Trump loses the 2020 election?",
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('replies')->insert([
-            'user_id' => 105,
+            'user_id' => 103,
             'thread_id' => 103,
             'body' => "Depends in part on how badly he loses. Starting with the Senate.
 
@@ -543,7 +533,7 @@ Neofascist movements are hard to quell. Especially in the age of social media.",
             'updated_at' => Carbon::now(),
         ]);
         DB::table('replies')->insert([
-            'user_id' => 105,
+            'user_id' => 103,
             'thread_id' => 107,
             'body' => "I met my wife at a local movie theater in Ohio. She just moved there after doing an internship in another state. I just moved back from China a few months before. The only people I knew were my relatives, but they were all busy with their families and work. My job was stressful, so afterwork on Fridays, I had a habit of going to see movies by myself to relax. My wife had not started working yet and she was exploring areas around the city, so she decided to also see the same movie as me, Boyhood. It was in a locally famous art house theater. This theater was old fashioned so there were only 5 or 6 screens, and you had to wait for the movie to be set-up. So my future wife and I were waiting outside in a line to enter the movie.
 
@@ -581,7 +571,7 @@ Luckily we were long distance for only two years and moved in with each other af
             'updated_at' => Carbon::now()
         ]);
         DB::table('replies')->insert([
-            'user_id' => 104,
+            'user_id' => 102,
             'thread_id' => 107,
             'body' => "Are you ready for a wild ride?
 

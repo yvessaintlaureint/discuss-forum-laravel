@@ -20,7 +20,7 @@
                     <div class="card rounded my-2">
                         <div class="card-body">
                             <div class="d-flex align-items-start mb-2">
-                                <img src="{{$thread->user->getAvatar()}}" class="rounded-circle" alt="Avatar" height="40px">
+                                <img src="{{$thread->user->getAvatar()}}" class="rounded-circle" alt="Avatar" height="40px" width="40px">
                                 <div class="ml-2">
                                     <h6 class="mt-1 mb-0">{{$thread->user->name}}</h6>
                                     <small class="text-muted mt-0">Last updated at {{$thread->updated_at}}</small>
@@ -28,11 +28,14 @@
                             </div>
                             <h5 class="card-title thread-thumbnail"><a href="/threads/{{$thread->id}}" class="text-dark">{{$thread->question}}</a></h5>
                             
-                            <p class="reply-thumbnail"> <?php $a = $thread->replies->first(); if (isset($a->body)) {echo $a->body;} ?> </p>
+                            <p class="reply-thumbnail"> 
+                                <?php $a = $thread->replies->first(); if (isset($a->body)) {echo nl2br("$a->body");} ?>
+                            </p>
 
                         </div>
                     </div>
                 @endforeach
+                <span class="d-block mx-auto">{{$threads->links()}}</span>
             @else
                 <p>No threads found</p>
             @endif

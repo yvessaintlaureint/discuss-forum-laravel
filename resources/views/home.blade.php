@@ -38,8 +38,8 @@
                         <div class="card rounded my-2">
                             <div class="card-body">
                                 <small class="text-muted">Last updated at {{$reply->updated_at}}</small>
-                                <p class="card-text text-dark mt-2">{{$reply->body}}</p>
-                            <a href="/threads/{{$reply->thread->id}}" class="text-dark font-weight-bold">View thread</a>
+                                <a href="/threads/{{$reply->thread->id}}" class="d-block h5 mt-2 text-dark font-weight-bold">View thread</a>
+                                <p class="card-text text-dark mt-2">{!! nl2br(e($reply->body)) !!}</p>
                             </div>
                         </div>
                         

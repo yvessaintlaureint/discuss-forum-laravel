@@ -18,13 +18,13 @@ class ThreadsController extends Controller
         if($request->has('search')) {
             $keyword = $request->search;
     
-            $threads = Thread::where('question', 'like', '%' . $keyword . '%')->paginate(10);
-            return view('threads.index')->with('threads', $threads);
+            $threads = Thread::where('question', 'like', '%' . $keyword . '%')->paginate(6);
 
         }else {
-            $threads = Thread::orderBy('created_at','desc')->paginate(10);
-            return view('threads.index')->with('threads', $threads);
+            $threads = Thread::orderBy('created_at','desc')->paginate(6);
         }
+
+        return view('threads.index')->with('threads', $threads);
     }
 
     /**

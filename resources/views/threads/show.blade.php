@@ -71,13 +71,12 @@
       <div class="card rounded my-2">
         <div class="card-body">
           <div class="d-flex align-items-start mb-2">
-            <img src="{{$reply->user->getAvatar()}}" class="rounded-circle" alt="Avatar" height="40px">
+            <img src="{{$reply->user->getAvatar()}}" class="rounded-circle" alt="Avatar" height="40px" width="40px">
             <div class="ml-2">
               <h6 class="mt-1 mb-0">{{$reply->user->name}}</h6>
               <small class="text-muted mt-0">Last updated at {{$reply->updated_at}}</small>
             </div>
           </div>
-          <p class="card-text text-dark reply-body">{{$reply->body}}</p>
           @if($reply->user_id == auth()->user()->id)
             <a href="/replies/{{$reply->id}}/edit" class="btn btn-success reply-action"><i class="fas fa-pencil-alt"></i></i></a>
             <form action="/replies/{{$reply->id}}" method="post" class="d-inline">
@@ -86,6 +85,7 @@
               <button type="submit" class="btn btn-danger reply-action"><i class="fas fa-trash"></i></button>
             </form>
           @endif
+          <p class="card-text text-dark reply-body mt-2">{!! nl2br(e($reply->body)) !!}</p>
         </div>
       </div>
 
